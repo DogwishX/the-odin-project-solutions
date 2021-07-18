@@ -1,0 +1,61 @@
+@import "reset.css";
+
+nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 10px;
+}
+
+nav ul li {
+	padding: 10px;
+}
+
+#apps-icon {
+	height: 50px;
+}
+
+#search-and-logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 30vh;
+}
+
+#logo__img {
+	width: 272px;
+	height: 92px;
+}
+
+#search__wrapper {
+	margin-top: 20px;
+	width: 574px;
+	height: 45px;
+	border: solid 1px rgba(156, 156, 156, 0.4);
+	border-radius: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/* box-shadow: 5px 5px 10px #000; */
+}
+
+#search__icon {
+	padding-left: 10px;
+}
+
+#search__input {
+	font-size: 16px;
+	border: none;
+	height: 90%;
+	width: 80%;
+}
+
+#search__input:focus {
+	outline: none;
+}
+
+#search__microphone {
+	padding-right: 10px;
+}
