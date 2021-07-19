@@ -5,11 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="styles/style.css" />
-		<link
-			rel="shortcut icon"
-			href="images/Google-favicon-2015.png"
-			type="image/x-icon"
-		/>
+		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 		<title>Google</title>
 	</head>
 	<body>
@@ -31,10 +27,10 @@
 						/>
 					</svg>
 				</li>
-				<li><button>Sign In</button></li>
+				<li><button id="sign-in">Sign In</button></li>
 			</ul>
 		</nav>
-		<section id="search-and-logo">
+		<section id="middle-section">
 			<div id="logo__wrapper">
 				<img id="logo__img" src="images/logo.png" />
 			</div>
@@ -60,7 +56,7 @@
 					height="24px"
 					viewBox="0 0 24 24"
 					width="24px"
-					fill="#000000"
+					fill="gray"
 				>
 					<g>
 						<rect fill="none" height="24" width="24" />
@@ -80,6 +76,41 @@
 					</g>
 				</svg>
 			</form>
+			<div id="search__buttons">
+				<button>Google Search</button>
+				<button>I'm Feeling Lucky</button>
+			</div>
+			<div>
+				<p id="search__language__text">
+					Google offered in: <a href="#" id="search__language__link">Gaeilge</a>
+				</p>
+			</div>
 		</section>
+		<footer>
+			<div id="country">Ireland</div>
+			<hr />
+			<div class="footer__hyperlinks" id="carbon__footprint">
+				<a
+					><img
+						id="carbon__footprint__icon"
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzFKCzFKCzFJSo0MSczNDmkCCzFJPoUMTczNdr0gmgziCzFITczMTczMTczMTczPh00jOAAAAFHRSTlPF/+bIsms8Ad///hX+//5/tXw7aMEAx10AAACaSURBVHgBbc4HDoRQCATQ33tbvf9dF9QxaCT9UQaltLHOh/golXKhMs5Xqa0xU1lyoa2fXFyQOsDG38qsLy4TaV+sFislovyhPzLJJrBu6eQOtpW0LjbJkzTuTDLRVNKa3uxJI+VdiRqXSeu6GW+Qxi29eLIi8H7EsYrT42BD+mQtNO5JMjRuC4lSY8V4hsLX0egGijvUSEP9AbylEsOkeCgWAAAAAElFTkSuQmCC"
+					/>
+					Carbon neutral since 2007</a
+				>
+			</div>
+			<div id="footer__hyperlinks__wrapper">
+				<div class="footer__hyperlinks" id="info-div">
+					<a href="#">About</a>
+					<a href="#">Advertising</a>
+					<a href="#">Business</a>
+					<a href="#">How Search Works</a>
+				</div>
+				<div class="footer__hyperlinks" id="tos-div">
+					<a href="#">Privacy</a>
+					<a href="#">Terms</a>
+					<a href="#">Settings</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
