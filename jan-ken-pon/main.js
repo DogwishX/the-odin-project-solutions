@@ -1,38 +1,52 @@
 const OPTIONS = ['rock', 'scissors', 'paper'];
+let maxScore = 5;
 let playerScore = 0;
 let computerScore = 0;
 let winner = '';
+let playerSelection = '';
 
 // Game Initiation
+listenGameStart();
 
-function game(rounds = 5) {
-	loopRounds(rounds);
-	determineWinner();
-	return endGameMessage();
+function listenGameStart() {
+	let buttons = document.querySelectorAll('.option-btn');
+
+	buttons.forEach((btn) => {
+		btn.addEventListener('click', ({ target }) => {
+			playerSelection = target.id; // Assign playerSelection based on the id of button selected. This selection will be carried throughout the round.
+			game();
+		});
+	});
 }
 
-function loopRounds(rounds) {
-	for (let i = 0; i < rounds; i++) {
-		console.log(playRound(prompt('Type in your move:'), computerMove()));
-	}
+function game() {
+	createDOMText(playRound(playerSelection, computerMove()), '#round-result');
+	createDOMText(endGameMessage(), '#score-result');
+	if (playerScore === maxScore || computerScore === maxScore)
+		createDOMText(determineWinner(), '#winner-result');
+}
+
+function createDOMText(text, div) {
+	let parentDiv = document.querySelector(div);
+	parentDiv.innerHTML = '';
+	let childDiv = document.createElement('div');
+	let divText = document.createElement('p');
+	divText.textContent = text;
+	childDiv.appendChild(divText);
+	parentDiv.appendChild(childDiv);
 }
 
 function determineWinner() {
 	playerScore > computerScore
 		? (winner = 'The Player Wins!')
-		: playerScore === computerScore
-		? (winner = `It's a draw!`)
 		: (winner = 'The Computer Wins!');
+	return `${winner}`;
 }
 
 function endGameMessage() {
-	return console.log(
-		`${winner} 
-
-The final score is:   
+	return `The current score is:   
 Player   - ${playerScore}   
-Computer - ${computerScore}`
-	);
+Computer - ${computerScore}`;
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -69,14 +83,15 @@ function handleWin(playerSelection, computerSelection) {
 	playerScore++;
 	return `You won! ${capitalize(playerSelection)} beats ${capitalize(
 		computerSelection
-	)}`;
+	)}.`;
 }
 
 function handleLoss(playerSelection, computerSelection) {
 	computerScore++;
 	return `You lost! ${capitalize(computerSelection)} beats ${capitalize(
 		playerSelection
-	)} Try again`;
+	)}. 
+	Try again.`;
 }
 
 function capitalize(str) {
