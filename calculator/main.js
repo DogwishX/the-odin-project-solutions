@@ -32,7 +32,7 @@ buttons.forEach((btn) => btn.addEventListener('click', handleInput, false));
 
 function handleInput({ target }) {
 	if (target.id == 'equals') {
-		if (equation.length == 2) {
+		if (equation.length == 2 && tempNumberStr.length > 0) {
 			// push tempStr to equation
 			equation.push(tempNumberStr);
 			// Operate equation
@@ -41,13 +41,19 @@ function handleInput({ target }) {
 			calc.display(result);
 			// Assign equation[0]
 			equation = [];
+			console.log(equation);
 			// Reset temp Str
 			return (tempNumberStr = '');
 		}
 		return;
-	}
-	if (target.id === 'ac') return (equation = []);
+	} else if (target.id === 'ac') return resetCalculator();
 	return runCalculations(target);
+}
+
+function resetCalculator() {
+	equation = [];
+	tempNumberStr = '';
+	calc.display('0');
 }
 
 function runCalculations(target) {
