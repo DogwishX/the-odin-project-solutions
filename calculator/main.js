@@ -46,7 +46,10 @@ function handleInput({ target }) {
 			return (tempNumberStr = '');
 		}
 		return;
-	} else if (target.id === 'ac') return resetCalculator();
+	} else if (target.id === 'ac') {
+		return resetCalculator();
+	} else if (target.id == '.' && tempNumberStr.includes('.')) return;
+
 	return runCalculations(target);
 }
 
