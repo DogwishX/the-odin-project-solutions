@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<h1>My library</h1>
-		<section class="add-book__container">
+		<form class="add-book__container">
 			<div class="label-and-input">
 				<label class="labels" for="book-input">Book</label>
 				<input
@@ -23,11 +23,13 @@
 					type="text"
 					name="book"
 					id="book-input"
+          required
 				/>
 			</div>
 			<div class="label-and-input">
 				<label class="labels" for="author-input">Author</label>
 				<input
+          required
 					class="add-book__input"
 					type="text"
 					name="author"
@@ -52,14 +54,15 @@
 						</div>
 					</div>
 				</div>
-				<button id="submit-btn">Submit</button>
+				<button type="submit" id="submit-btn">Submit</button>
 			</div>
-		</section>
+		</form>
 		<table class="library">
 			<tr class="table-header">
 				<th>Name</th>
 				<th>Author</th>
 				<th>Status</th>
+        <th></th>
 			</tr>
 		</table>
 	</body>
