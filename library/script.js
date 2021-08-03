@@ -48,6 +48,29 @@ class Book {
 		this.author = author;
 		this.isRead = isRead;
 	}
+
+	displayBook() {
+		const tableRow = document.createElement('tr');
+		const name = document.createElement('td');
+		const authorEl = document.createElement('td');
+		const status = document.createElement('td');
+		const deleteBtn = document.createElement('td');
+
+		name.textContent = `${this.book}`;
+		authorEl.textContent = `${this.author}`;
+		status.textContent = `${this.isRead}`;
+		tableRow.append(name, authorEl, status, deleteBtn);
+		tableRow.classList.add('table-data');
+		libraryTable.append(tableRow);
+
+		deleteBtn.textContent = `Delete`;
+		deleteBtn.id = book.book;
+		deleteBtn.classList.add('delete-btn');
+
+		status.addEventListener('click', this.toggle);
+		deleteBtn.addEventListener('click', removeRow);
+	}
+
 	toggle() {
 		this.textContent == 'Read'
 			? (this.textContent = 'Not Read')
@@ -68,25 +91,7 @@ displayLibrary();
 function displayLibrary() {
 	resetDisplay();
 	for (let book of myLibrary) {
-		const tableRow = document.createElement('tr');
-		const name = document.createElement('td');
-		const author = document.createElement('td');
-		const status = document.createElement('td');
-		const deleteBtn = document.createElement('td');
-
-		name.textContent = `${book.book}`;
-		author.textContent = `${book.author}`;
-		status.textContent = `${book.isRead}`;
-		tableRow.append(name, author, status, deleteBtn);
-		tableRow.classList.add('table-data');
-		libraryTable.append(tableRow);
-
-		status.addEventListener('click', book.toggle);
-
-		deleteBtn.textContent = `Delete`;
-		deleteBtn.id = book.book;
-		deleteBtn.classList.add('delete-btn');
-		deleteBtn.addEventListener('click', removeRow);
+		book.displayBook();
 	}
 }
 
