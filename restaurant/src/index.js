@@ -1,3 +1,5 @@
+import './style.css';
+
 const WEBPAGE = (() => {
 	class Element {
 		constructor(tag, cssSelector) {
@@ -12,4 +14,5 @@ const WEBPAGE = (() => {
 
 	let header = new Element('div', '#header');
 	header.appendTo('#content');
+	console.log(header.parentNode);
 })();
