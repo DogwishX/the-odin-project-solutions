@@ -3,16 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;1,200&family=Tangerine:wght@400;700&display=swap');
 
 #content {
-	height: 100vh;
+	min-height: 100vh;
 	background-image: url('background.jpg');
 	background-size: cover;
 	font-family: 'Montserrat', cursive;
+	color: white;
 }
 
 .header {
 	height: 20vh;
 	background-color: rgba(0, 0, 0, 0.9);
-	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -27,7 +27,7 @@
 
 .tabs__container {
 	margin-top: 50px;
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -37,12 +37,50 @@
 	cursor: pointer;
 }
 
-.main {
-	height: 70vh;
+.home,
+.menu,
+.contact {
+	display: none;
+	margin-top: 6.5%;
+	background-color: rgba(0, 0, 0, 0.6);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.home {
-	margin-top: 6.5%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.4);
+.active {
+	display: flex;
+}
+.home-text {
+	font-size: 1.3rem;
+	margin: 15px;
+}
+.home-img {
+	height: 250px;
+	width: fit-content;
+	border-radius: 50%;
+	opacity: 0.7;
+	box-shadow: 1px 1px 20px black;
+}
+
+.menu div {
+	margin: 20px;
+	width: 400px;
+	height: 250px;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	transition: all 0.5s;
+}
+
+.menu div:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.item-img {
+	width: 200px;
 }
