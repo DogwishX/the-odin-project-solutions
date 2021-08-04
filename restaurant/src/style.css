@@ -2,5 +2,12 @@
 
 #content {
 	height: 100vh;
-	background-color: black;
+	background-image: url('background.jpg');
+	background-size: cover;
+}
+
+.header {
+	height: 40vh;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: white;
 }
