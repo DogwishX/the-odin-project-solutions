@@ -2,7 +2,7 @@ import Element from '../component/element';
 import MenuItem from '../component/menuItemCard';
 
 function menu() {
-	const options = [
+	const pizzas = [
 		{
 			img: 'https://michalosman.github.io/restaurant-page/images/pizzas/salsiccia.png',
 			name: 'Salsiccia',
@@ -23,8 +23,9 @@ function menu() {
 		},
 	];
 
-	new Element('div', 'menu', '#content');
-	options.forEach(
+	let mainDiv = new Element('div', 'menu', '#content');
+
+	pizzas.forEach(
 		({ img, name, ingredients }) => new MenuItem(img, name, ingredients)
 	);
 }
