@@ -1,0 +1,40 @@
+@import url('./reset.css');
+
+body {
+	background-color: rgba(17, 14, 14, 0.938);
+}
+
+.nav-bar {
+	background-color: brown;
+	height: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+
+.icon {
+	margin: 3px;
+	padding: 7px;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+}
+
+.icon:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 50%;
+}
+
+.right .icon {
+	margin-top: 5px;
+	height: 15px;
+	width: 15px;
+}
+
+.page {
+	display: none;
+}
+
+.active {
+	display: flex;
+}
