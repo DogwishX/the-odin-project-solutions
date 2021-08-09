@@ -1,7 +1,12 @@
 @import url('./reset.css');
 
+:root {
+	--nav-bar-height: 40px;
+}
+
 body {
-	background-color: rgba(17, 14, 14, 0.938);
+	background-color: rgb(24, 26, 27);
+	color: white;
 	font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
 		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
 		'Noto Color Emoji';
@@ -10,7 +15,7 @@ body {
 
 .nav-bar {
 	background-color: brown;
-	height: 40px;
+	height: var(--nav-bar-height);
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
@@ -35,12 +40,112 @@ body {
 	width: 15px;
 }
 
+#main {
+	display: flex;
+}
+
+.task-pages {
+	background-color: rgb(29, 31, 32);
+	display: none;
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 40%;
+	height: calc(100vh - var(--nav-bar-height));
+	flex-direction: column;
+}
+
+.main-tabs__container {
+	margin-top: 40px;
+	margin-left: 10%;
+}
+
+.tab {
+	margin-top: 10px;
+	padding: 10px;
+	width: 70%;
+}
+
+.tab:hover,
+.sub-tabs:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+}
+.projects-label {
+	margin-top: 10px;
+}
+
+.projects-tab {
+	display: flex;
+	flex-direction: column-reverse;
+}
+/* .projects-tab:hover {
+	background-color: transparent;
+	cursor: initial;
+} */
+.sub-tabs {
+	margin-left: 15px;
+	margin-top: 10px;
+	padding: 8px;
+	width: fit-content;
+	font-size: 0.8rem;
+}
+
+.add-project {
+	display: flex;
+	flex-direction: row;
+	order: -1;
+}
+
+.add-project:hover {
+	color: rgb(250, 95, 95);
+}
+
+.add-sign {
+	margin-right: 5px;
+}
+
+.new-project-form {
+	transition: all 0.5s;
+	position: absolute;
+	height: 300px;
+	width: 300px;
+	top: -50%;
+	left: -50%;
+	opacity: 0;
+}
+
+.new-project-form.active {
+	background-color: black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.new-project-form * {
+	margin: 10px;
+	text-align: center;
+}
+
+.overlay {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
 .page {
 	font-size: 20px;
 	color: white;
 	text-align: center;
-	margin-top: 10px;
 	display: none;
+	min-height: calc(100vh - var(--nav-bar-height));
 }
 
 .active {

@@ -96,6 +96,28 @@
 			</nav>
 		</header>
 
-		<main id="main"></main>
+		<main id="main">
+			<div class="task-pages">
+				<div class="main-tabs__container">
+					<div class="tab inbox-tab">Inbox</div>
+					<div class="tab today-tab">Today</div>
+					<div class="projects-label">Projects</div>
+					<div class="projects-tab">
+						<div class="sub-tabs add-project">
+							<div class="add-sign">+</div>
+							New Project
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay"></div>
+			<div class="new-project-form">
+				<h1>New Project</h1>
+				<input type="text" name="name" id="project-name" />
+				<button class="close-btn">Close</button>
+				<button class="add-project-btn">Add Project</button>
+			</div>
+			<div class="pages" project></div>
+		</main>
 	</body>
 </html>
