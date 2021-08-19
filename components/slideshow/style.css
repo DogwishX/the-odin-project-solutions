@@ -5,11 +5,16 @@
   margin: 0;
 }
 
+:root {
+  --slideshow-height: 50vh;
+  --slideshow-width: 100vw;
+}
+
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  width: var(--slideshow-width);
   margin: auto;
-  height: 50vh;
+  height: var(--slideshow-height);
 }
 
 /* Hide the images by default */
@@ -21,7 +26,7 @@
 }
 
 .mySlides img{
-  max-height: 60vh;
+  height: var(--slideshow-height);
 }
 
 /* Next & previous buttons*/
@@ -29,7 +34,7 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 25vh;
+  top: calc(var(--slideshow-height) /2);
   width: auto;
   margin-top: -22px;
   padding: 16px;
@@ -76,8 +81,8 @@
 .dots-container {
   text-align: center;
   z-index: 1;
-  left: 50%;
-  top: 50vh;
+  left: calc(var(--slideshow-width) / 2);
+  top: calc(var(--slideshow-height) - 2vh);
   transform: translate(-50%, -50%);
   position: absolute;
 }
