@@ -1,0 +1,83 @@
+@import url('/reset.css');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: white;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+}
+
+.form-container {
+  margin: 8vh auto;
+  height: 550px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-container h3 {
+  font-size: 2rem;
+  user-select: none;
+}
+
+.input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+}
+
+input, button {
+  text-align: center;
+  padding: 10px 15px;
+  margin: 5px;
+  width: 200px;
+  border-radius: 3px;
+  background-color: rgba(255,255,255, 0.2);
+  border: solid rgba(255,255,255, 0.3) 1px;
+  transition: all .3s;
+  color: white;
+  caret-color: #50a3a2;
+  caret-size: 1.2rem;
+  font-size: 1rem;
+
+}
+
+input::placeholder, button {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: white;
+  opacity: .7; 
+}
+
+input:hover {
+  background-color: rgba(255,255,255, 0.4); 
+}
+
+input:focus {
+  color: #50a3a2;
+  background-color: white;
+  width: 250px;
+}
+
+input:focus:invalid {
+  box-shadow: 1px 1px 20px rgba(255, 0, 0, 0.5)
+
+}
+
+
+button {
+  width: 46%;
+  background-color: white;
+  color: #50a3a2;
+  font-weight: 400;
+  opacity: 1;
+}
+
+button:hover {
+  cursor: pointer;
+}
