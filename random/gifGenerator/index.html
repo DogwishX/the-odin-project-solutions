@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <input type='text'>
+    <button>Generate GIF</button>
+    <br>
+    <img src="#" />
+    <script>
+      const imageSelector = document.querySelector('img');
+      const buttonSelector = document.querySelector('button');
+      
+      buttonSelector.addEventListener('click', generateImage)
+      imageSelector.addEventListener('load', () => document.body.style.cursor = 'default');
+
+      function generateImage() {
+        document.body.style.cursor = 'wait';
+        let searchInputValue = document.querySelector('input').value;
+        if(searchInputValue == '') searchInputValue = 'cats';
+        fetch(
+        `https://api.giphy.com/v1/gifs/translate?api_key=O4jdAVfkMgxdeoCA728rSVE7oRnatRrz&s=${searchInputValue}%27`,
+        { mode: "cors" }
+      )
+        .then((response) => response.json())
+        .then(({data}) => imageSelector.src = data.images.original.url)
+        .catch(() => imageSelector.src = 'https://image.shutterstock.com/image-vector/404-error-page-not-found-260nw-1129989299.jpg')
+      }
+      generateImage();
+
+    </script>
+  </body>
+</html>
