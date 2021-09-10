@@ -18,21 +18,30 @@ function displayResult(currentData, fullForecastData, weeklyData, countries) {
   let epochDate = fullForecastData.minutely[0].dt;
   let timezoneOffset = fullForecastData.timezone_offset;
   let timezoneAdjustedDate = new Date((epochDate + timezoneOffset) * 1000);
+  let day = `${timezoneAdjustedDate.getDate()}, ${weeklyData[0].nameOfDay}`;
+  let month = timezoneAdjustedDate.toLocaleString("default", {
+    month: "short",
+  });
+  let year = timezoneAdjustedDate.getFullYear().toString().slice(2);
+  let dateStr = `${day} ${month} '${year} `;
+  
+  dateSelector.textContent = dateStr;
+  
+  // Time
   let hour = timezoneAdjustedDate.getHours();
   let minutes = timezoneAdjustedDate.getMinutes();
-  let day = `${timezoneAdjustedDate.getDate()}, ${weeklyData[0].nameOfDay}`;
-  let month = timezoneAdjustedDate.toLocaleString("default", { month: "short" });
-  let year = timezoneAdjustedDate.getFullYear().toString().slice(2,)
-
-  let dateStr = `${day} ${month} '${year} `;
   let timeStr = `${hour}:${minutes}`;
-  
-  dateSelector.innerHTML = `${dateStr} <br> ${timeStr}`
 
+  timeSelector.textContent = timeStr
 
-  
-  console.log(fullForecastData);
-  console.log(dateStr, timeStr);
+  // Temperature
+  let roundedTemp = Math.floor(weeklyData[0].maxTemp)
+  let tempStr = `${roundedTemp} °C`
+
+  temperatureSelector.textContent = tempStr
+
+  console.log();
+  console.log();
 }
 
 export default displayResult;

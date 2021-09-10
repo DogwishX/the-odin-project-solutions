@@ -98,7 +98,8 @@ body {
 }
 
 .today {
-  margin: 25px 20px;
+  margin: 25px 0;
+  text-align: center;
 }
 
 .todays-forecast {
@@ -107,11 +108,25 @@ body {
   margin-bottom: 10px;
 }
 
+.today p{
+  
+}
+
 .location {
   font-size: 0.7rem;
   margin: 5px 0;
 }
 
 .date {
+  margin-top: 15px;
+}
+
+.date, .time {
   font-size: 0.6rem;
+}
+
+
+.temperature {
+  margin-top: 10px;
+  font-size: 2rem;
 }
