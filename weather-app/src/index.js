@@ -1,24 +1,23 @@
-import Element from "./components/element";
-import './style.css';
+import displayPage from './components/display/displayPage'
+import searchWeatherApi from '../src/components/api/searchWeatherApi';
+
+import "./style.css";
+
+const loadingOverlay = document.querySelector('.loading');
+
+displayPage()
+searchWeatherApi()
+// .then(() => setTimeout(() =>loadingOverlay.classList.remove('loading'), 5000));
+
+// DOM Cache
+const button = document.querySelector("button");
+const input = document.querySelector("input");
 
 
-let data;
+button.addEventListener("click", handleSearchClick);
 
-async function fetchData() {
-  try {
-    const query = await fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=dublin,ie&APPID=8c1ae38c1f691f86ab506d5f47eecb0a"
-    );
-    const result = await query.json();
-    data = result;
-    return;
-  } catch (error) {
-    return "Ooops!";
-  }
+function handleSearchClick() {
+  const cachedInputValue = input.value;
+  input.value = '';
+  searchWeatherApi(cachedInputValue);
 }
-
-fetchData().then(() => {
-  console.log(data.weather[0].description)
-  const todaysForecast = new Element("h1", ".weatherStatus", "section", ` `);
-
-})
