@@ -28,15 +28,9 @@
       + Text from API
       + Styling
     
-    = Display Unit
-      - Display in HTML
-      - Implement Function to change API request according to selection
-      - Create function to change the display message for the button
-      - Styling
-    
-    = Icon
-      - Download icons for different weather forecasts 
-      - Find in API request where a simple description is provided
+    !!= Icon
+      + Download icons for different weather forecasts 
+      !- Find in API request where a simple description is provided
       - Rename files according to simple descriptions of weather
       - Change icon src as above
 

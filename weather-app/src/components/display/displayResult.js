@@ -40,7 +40,7 @@ function displayResult(currentData, fullForecastData, weeklyData, countries) {
 
   temperatureSelector.textContent = tempStr
 
-  console.log();
+  console.log(fullForecastData);
   console.log();
 }
 
