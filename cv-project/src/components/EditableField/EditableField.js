@@ -4,30 +4,28 @@ function EditableField(props) {
   const [editable, setEditable] = useState(false);
   const [inputValue, setInputValue] = useState(props.children);
 
+  function changeEditable() {
+    setEditable(!editable);
+  }
+
+  function changeInputValue({ target }) {
+    setInputValue(target.value);
+  }
+
   return (
     <div>
-      {editable ? (
-        <div>
+      {editable ? ( 
+        <>
           <input
-            onClick={({ target }) => target.select()}
-            value={inputValue}
-            onChange={({ target }) => setInputValue(target.value)}
+            data-testid="text"
             type="text"
+            value={inputValue}
+            onChange={changeInputValue}
           />
-          <button
-            onClick={() => {
-              setEditable(!editable);
-            }}
-          >
-            Save
-          </button>
-        </div>
+          <button data-testid='button' onClick={changeEditable}>Save</button>
+        </>
       ) : (
-        <p
-          onClick={() => {
-            setEditable(!editable);
-          }}
-        >
+        <p data-testid="text" onClick={changeEditable}>
           {inputValue}
         </p>
       )}

@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import Title from './components/Title/Title'
 import EditableField from './components/EditableField/EditableField';
+import AddBtn from './components/AddBtn/AddBtn'
+
 
 function App() {
   return (
@@ -20,9 +21,8 @@ function App() {
     {/* Components */}
       {/* Header Buttons */}
       {/* Editable field */}
-      <EditableField>Test</EditableField>
+      <EditableField>text</EditableField>
       {/* Section Title */}
-      <Title>Section Title</Title>
       {/* Section Button */}
       {/* Form */}
     </div>
