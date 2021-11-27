@@ -1,1 +1,0 @@
-(()=>{let e=new class{constructor(e,t){this.element=document.createElement(e),this.element.classList.add(t)}appendTo(e){this.parentNode=document.querySelector(e),this.parentNode.appendChild(this.element)}}("div","#header");e.appendTo("#content"),console.log(e.parentNode)})();
