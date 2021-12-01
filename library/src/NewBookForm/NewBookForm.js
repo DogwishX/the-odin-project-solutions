@@ -2,40 +2,39 @@ import { useState } from "react";
 
 function NewBookForm({ books, setBooks }) {
   const [newBookInfo, setNewBookInfo] = useState({
-    status: "Read",
+    // status: "Read",
   });
   return (
     <div className="form">
       <div className="form__input-container">
-        <label htmlFor="book">Book</label>
-        <input id="book" type="text" onChange={handleChange}></input>
+        <label htmlFor="form__title">Book</label>
+        <input id="form__title" type="text" data-testid='form__title' onChange={handleChange}></input>
       </div>
       <div className="form__input-container">
-        <label htmlFor="author">Author</label>
-        <input id="author" type="text" onChange={handleChange}></input>
+        <label htmlFor="form__author">Author</label>
+        <input id="form__author" type="text" data-testid='form__author' onChange={handleChange}></input>
       </div>
       <div className="form__input-container">
-        <label htmlFor="status">Status</label>
-        <select id="status" onChange={handleChange}>
+        <label htmlFor="form__status">Status</label>
+        <select id="form__status" data-testid='form__status' onChange={handleChange}>
           <option>Read</option>
           <option>Not Read</option>
         </select>
       </div>
-      <button onClick={addBook}>Add</button>
+      <button className='form__btn' data-testid='form__btn' onClick={addBook}>Add</button>
     </div>
   );
 
   function addBook() {
     const inputFields = document.querySelectorAll('input[type="text"]');
-    inputFields.forEach((input) => (input.value = ""));
     setBooks([...books, newBookInfo]);
-    console.log(books);
+    inputFields.forEach((input) => (input.value = ""));
   }
 
   function handleChange({ currentTarget }) {
     setNewBookInfo((prevInfo) => ({
       ...prevInfo,
-      [currentTarget.id]: currentTarget.value,
+      [currentTarget.id.slice(6)]: currentTarget.value,
     }));
   }
 }
