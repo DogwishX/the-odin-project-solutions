@@ -9,7 +9,6 @@ function Collection({ books }) {
 }
 
 function Book({ title, author, status }) {
-  console.log(title, author, status);
   return (
     <div className="book" data-testid={`book`}>
       <div className="book__title" data-testid={`book__title`}>
