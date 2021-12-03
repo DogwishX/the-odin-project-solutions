@@ -1,7 +1,14 @@
-import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  cleanup,
+  fireEvent,
+  findByText,
+} from "@testing-library/react";
+import "@testing-library/jest-dom";
 import App from "../App.js";
 
-describe("NewbookForm & COllection integration", () => {
+describe("NewbookForm & Collection integration", () => {
   beforeAll(() => {
     render(<App />);
   });
@@ -10,16 +17,23 @@ describe("NewbookForm & COllection integration", () => {
     cleanup();
   });
 
-  test("Renders new Book on click", async () => {
-    const newBookTitle = screen.getByTestId("form__title");
-    const newBookAuthor = screen.getByTestId("form__author");
-    const newBookStatus = screen.getByTestId("form__status");
-    [newBookTitle.value, newBookAuthor.value, newBookStatus.value] = [
-      "good book",
-      "lolz",
-      "Read",
-    ];
+  test("Renders new Book on click", () => {
+    const testBook = { title: "good book", author: "lolz", status: "Not Read" };
+    const addBtn = screen.getByTestId("form__btn");
 
-    expect(true).toBe(true);
+    const formElements = {};
+    for (let key in testBook) {
+      formElements[key] = screen.getByTestId(`form__${key}`);
+      fireEvent.change(formElements[key], { target: { value: testBook[key] } });
+    }
+
+    fireEvent.click(addBtn);
+    const hasBookRenderedValues = Object.keys(testBook).every((key) =>
+      screen.getByTestId(`book__${key}`).innerHTML === testBook[key]
+        ? true
+        : false
+    );
+
+    expect(hasBookRenderedValues).toBe(true);
   });
-});
+}); 
