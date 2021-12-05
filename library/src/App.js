@@ -13,7 +13,7 @@ function App() {
         using Object Constructors and LocalStorage.'
       </p>
       <NewBookForm books={books} setBooks={setBooks} />
-      <Collection books={books}/>
+      <Collection books={books} setBooks={setBooks}/>
     </>
   );
 }

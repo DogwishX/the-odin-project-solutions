@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import Collection from "../Collection/Collection.js";
 
 const books = [
@@ -41,5 +41,9 @@ describe("Render Books", () => {
     expect(bookStatus.map((status) => status.innerHTML)).toStrictEqual(
       books.map((book) => book.status)
     );
+  });
+  test("Delete", () => {  
+    const deleteBtn = screen.getAllByTestId(/delete/gi);
+    expect(deleteBtn).toBeTruthy();
   });
 });

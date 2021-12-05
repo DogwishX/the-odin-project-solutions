@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function NewBookForm({ books, setBooks }) {
   const [newBookInfo, setNewBookInfo] = useState({
-    // status: "Read",
+    status: "Read",
   });
   return (
     <div className="form">
