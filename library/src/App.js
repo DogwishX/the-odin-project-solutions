@@ -13,15 +13,15 @@ function App() {
   }, [books]);
 
   return (
-    <>
-      <h1 className="title">My book library</h1>
+    <div className="app">
+      <h2 className="title">My book library</h2>
       <p className="project-description">
         This is a project for The Odin Project in which I have to make a library
         using Object Constructors and LocalStorage.'
       </p>
       <NewBookForm books={books} setBooks={setBooks} />
       <Collection books={books} setBooks={setBooks} />
-    </>
+    </div>
   );
 }
 
