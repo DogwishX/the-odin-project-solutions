@@ -9,6 +9,7 @@ describe("NewbookForm & Collection integration", () => {
 
   afterEach(() => {
     cleanup();
+    window.localStorage.clear();
   });
 
   test("Renders new Books on click", () => {
@@ -22,9 +23,11 @@ describe("NewbookForm & Collection integration", () => {
     const hasBookRenderedValues = testBooks.every((item) => {
       for (let key in item) {
         const booksElements = screen.getAllByTestId(`book__${key}`);
-        return booksElements.map((element) => element.innerHTML).includes(item[key])
+        return booksElements
+          .map((element) => element.innerHTML)
+          .includes(item[key])
           ? true
-          : false
+          : false;
       }
     });
 
@@ -45,10 +48,6 @@ describe("NewbookForm & Collection integration", () => {
   });
 });
 
-
-
-
-
 function addBooks(testBooks, formElements = {}) {
   const addBtn = screen.getByTestId("form__btn");
 
@@ -60,3 +59,38 @@ function addBooks(testBooks, formElements = {}) {
     fireEvent.click(addBtn);
   }
 }
+
+describe("localStorage", () => {
+  beforeEach(() => {
+    render(<App />);
+  });
+
+  afterEach(() => {
+    cleanup();
+    window.localStorage.clear()
+  });
+
+  test("Save new Books", () => {
+    const testBooks = [
+      { title: "good book", author: "lolz", status: "Not Read" },
+      { title: "good book1", author: "lolz1", status: "Read" },
+    ];
+
+    addBooks(testBooks);
+
+    expect(JSON.parse(window.localStorage.books)).toStrictEqual(testBooks);
+  });
+
+  test("Remove a Book", () => {
+    const testBooks = [
+      { title: "good book", author: "lolz", status: "Not Read" },
+      { title: "good book1", author: "lolz1", status: "Read" },
+    ];
+
+    addBooks(testBooks);
+    const deleteBtns = screen.getAllByTestId(/delete/gi);
+    fireEvent.click(deleteBtns[0]);
+    
+    expect(JSON.parse(window.localStorage.books).length).toBe(1);
+  });
+});
