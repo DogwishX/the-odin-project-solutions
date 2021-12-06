@@ -12,43 +12,51 @@ describe("NewbookForm & Collection integration", () => {
   });
 
   test("Renders new Books on click", () => {
-    const testBook = { title: "good book", author: "lolz", status: "Not Read" };
-    const addBtn = screen.getByTestId("form__btn");
+    const testBooks = [
+      { title: "good book", author: "lolz", status: "Not Read" },
+      { title: "good book1", author: "lolz1", status: "Not Read1" },
+    ];
 
-    const formElements = {};
-    for (let key in testBook) {
-      formElements[key] = screen.getByTestId(`form__${key}`);
-      fireEvent.change(formElements[key], { target: { value: testBook[key] } });
-    }
+    addBooks(testBooks);
 
-    fireEvent.click(addBtn);
-    const hasBookRenderedValues = Object.keys(testBook).every((key) => {
-      return screen.getByTestId(`book__${key}`).innerHTML === testBook[key]
-        ? true
-        : false;
+    const hasBookRenderedValues = testBooks.every((item) => {
+      for (let key in item) {
+        const booksElements = screen.getAllByTestId(`book__${key}`);
+        return booksElements.map((element) => element.innerHTML).includes(item[key])
+          ? true
+          : false
+      }
     });
 
     expect(hasBookRenderedValues).toBe(true);
   });
 
   test("Delete Book on click", () => {
-    const addBtn = screen.getByTestId("form__btn");
-    const testBook = [
+    const testBooks = [
       { title: "good book", author: "lolz", status: "Not Read" },
       { title: "good book1", author: "lolz1", status: "Not Read1" },
     ];
 
-    const formElements = {};
-    for (let key of testBook) {
-      console.log(key)
-      // formElements[key] = screen.getByTestId(`form__${key}`);
-      // fireEvent.change(formElements[key], { target: { value: testBook[key] } });
-    }
-    fireEvent.click(addBtn);
+    addBooks(testBooks);
 
-    // const deleteBtns = screen.getAllByTestId(/delete/gi);
-    // console.log(deleteBtns);
-    // fireEvent.click(deleteBtns[0]);
-    // expect(screen.getAllByTestId(/delete/gi)).toBeFalsy();
+    const deleteBtns = screen.getAllByTestId(/delete/gi);
+    fireEvent.click(deleteBtns[0]);
+    expect(screen.getAllByTestId(/delete/gi).length).toBe(1);
   });
 });
+
+
+
+
+
+function addBooks(testBooks, formElements = {}) {
+  const addBtn = screen.getByTestId("form__btn");
+
+  for (let item of testBooks) {
+    for (let key in item) {
+      formElements[key] = screen.getByTestId(`form__${key}`);
+      fireEvent.change(formElements[key], { target: { value: item[key] } });
+    }
+    fireEvent.click(addBtn);
+  }
+}
