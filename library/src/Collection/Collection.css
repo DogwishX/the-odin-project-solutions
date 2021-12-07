@@ -1,0 +1,36 @@
+.collection {
+  margin-top: 2rem;
+  border-spacing: 1rem;
+}
+
+.collection__header {
+  text-align: center;
+}
+
+.book {
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+.book__status {
+  border: 1px solid rgb(155, 154, 154);
+  border-radius: 5px;
+  width: 90px;
+  margin: 1rem;
+}
+
+.book__delete {
+  width: 90px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #e41a67;
+  text-transform: uppercase;
+  padding: 0.8rem 0;
+  color: white;
+  border-radius: 5px;
+}
+
+.book__delete:hover, .book__status {
+  cursor: pointer;
+  opacity: 0.8;
+}

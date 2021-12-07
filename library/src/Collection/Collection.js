@@ -1,35 +1,50 @@
+import { useEffect, useState } from "react";
+import "./Collection.css";
+
 function Collection({ books, setBooks }) {
   return (
-    <div className="collection" data-testid="collection">
-      {books.map((book, index) => (
-        <Book {...book}  key={index} />
-      ))}
-    </div>
+    <>
+      <table className="collection" data-testid="collection">
+        <thead className="collection__header">
+          <tr>
+            <th className="collection__title">Title</th>
+            <th className="collection__author">Author</th>
+            <th className="collection__status">Status</th>
+            <th className="collection__delete"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {books.map((book, index) => (
+            <Book {...book} key={index} />
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 
   function Book({ title, author, status, index }) {
     return (
-      <div className="book" id={index} data-testid={`book`}>
-        <div className="book__title" data-testid={`book__title`}>
+      <tr className="book" id={index} data-testid={`book`}>
+        <td className="book__title" data-testid={`book__title`}>
           {title}
-        </div>
-        <div className="book__author" data-testid={`book__author`}>
+        </td>
+        <td className="book__author" data-testid={`book__author`}>
           {author}
-        </div>
-        <div className="book__status" data-testid={`book__status`}>
+        </td>
+        <td className="book__status" data-testid={`book__status`}>
           {status}
-        </div>
-        <button
+        </td>
+        <td
           className="book__delete"
           data-testid={`book__delete`}
           onClick={deleteBook}
         >
           Delete
-        </button>
-      </div>
+        </td>
+      </tr>
     );
   }
-  function deleteBook({currentTarget}) {
+  function deleteBook({ currentTarget }) {
     books.splice(currentTarget.parentNode.id, 1);
     setBooks([...books]);
   }
