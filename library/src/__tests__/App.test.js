@@ -46,6 +46,20 @@ describe("NewbookForm & Collection integration", () => {
     fireEvent.click(deleteBtns[0]);
     expect(screen.getAllByTestId(/delete/gi).length).toBe(1);
   });
+
+  test("Change book status when clicked", () => {
+    const testBooks = [
+      { title: "good book", author: "lolz", status: "Read" },
+      { title: "good book1", author: "lolz1", status: "Read" },
+    ];
+    addBooks(testBooks);
+
+    const statusBtns = screen.getAllByTestId(/book__status/gi);
+    fireEvent.click(statusBtns[0]);
+    expect(screen.getAllByTestId(/book__status/gi)[0]).toHaveTextContent(
+      "Not Read"
+    );
+  });
 });
 
 function addBooks(testBooks, formElements = {}) {
@@ -67,7 +81,7 @@ describe("localStorage", () => {
 
   afterEach(() => {
     cleanup();
-    window.localStorage.clear()
+    window.localStorage.clear();
   });
 
   test("Save new Books", () => {
@@ -90,7 +104,7 @@ describe("localStorage", () => {
     addBooks(testBooks);
     const deleteBtns = screen.getAllByTestId(/delete/gi);
     fireEvent.click(deleteBtns[0]);
-    
+
     expect(JSON.parse(window.localStorage.books).length).toBe(1);
   });
 });

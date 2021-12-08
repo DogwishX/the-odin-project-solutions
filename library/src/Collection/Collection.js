@@ -15,7 +15,7 @@ function Collection({ books, setBooks }) {
         </thead>
         <tbody>
           {books.map((book, index) => (
-            <Book {...book} key={index} />
+            <Book {...book} index={index} key={index} />
           ))}
         </tbody>
       </table>
@@ -31,7 +31,11 @@ function Collection({ books, setBooks }) {
         <td className="book__author" data-testid={`book__author`}>
           {author}
         </td>
-        <td className="book__status" data-testid={`book__status`}>
+        <td
+          className="book__status"
+          data-testid={`book__status`}
+          onClick={changeStatus}
+        >
           {status}
         </td>
         <td
@@ -47,6 +51,11 @@ function Collection({ books, setBooks }) {
   function deleteBook({ currentTarget }) {
     books.splice(currentTarget.parentNode.id, 1);
     setBooks([...books]);
+  }
+  function changeStatus({ currentTarget }) {
+    const newBooks = [...books];
+    newBooks[currentTarget.parentNode.id].status = newBooks[currentTarget.parentNode.id].status === "Read" ? "Not Read" : "Read";
+    setBooks([...newBooks]); 
   }
 }
 
