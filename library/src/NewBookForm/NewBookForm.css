@@ -29,3 +29,17 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+@media only screen and (min-width: 460px) {
+  .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .form__btn {
+    margin-top: .8rem;
+    padding: .8rem 1.7rem;
+    text-align: center;
+  }
+}
