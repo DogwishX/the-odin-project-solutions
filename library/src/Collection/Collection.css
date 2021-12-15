@@ -1,6 +1,6 @@
 .collection {
   margin-top: 2rem;
-  border-spacing: 1rem;
+  border-spacing: 2rem;
 }
 
 .collection__header {
@@ -15,11 +15,9 @@
 .book__status {
   border: 1px solid rgb(155, 154, 154);
   border-radius: 5px;
-  width: 90px;
 }
 
 .book__delete {
-
   background-color: #e41a67;
   text-transform: uppercase;
   padding: 0.8rem 0;

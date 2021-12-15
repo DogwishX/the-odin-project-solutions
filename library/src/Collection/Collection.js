@@ -10,7 +10,7 @@ function Collection({ books, setBooks }) {
             <th className="collection__title">Title</th>
             <th className="collection__author">Author</th>
             <th className="collection__status">Status</th>
-            <th className="collection__delete"></th>
+            <th className="collection__delete">Delete</th>
           </tr>
         </thead>
         <tbody>
