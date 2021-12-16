@@ -15,7 +15,7 @@ class Header extends React.Component {
   }
 
   componentWillUnmount() {
-      window.removeEventListener('resize', this.updateWindowSize)
+    window.removeEventListener("resize", this.updateWindowSize);
   }
   updateWindowSize() {
     this.setState({ windowWidth: window.innerWidth });

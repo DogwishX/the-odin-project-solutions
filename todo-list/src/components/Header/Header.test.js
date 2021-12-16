@@ -3,7 +3,10 @@ import Header from "./Header";
 
 describe("render", () => {
   beforeEach(() => render(<Header />));
-  afterEach(() => cleanup());
+  afterEach(() => {
+    cleanup();
+    window.innerWidth = 1000;
+  });
 
   test("logo", () => {
     const logo = screen.getByTestId(/header__logo/gi);
@@ -14,12 +17,13 @@ describe("render", () => {
     expect(title).toBeTruthy();
   });
   test("menuIcon - small screen", () => {
-    const menu = screen.getByTestId(/header__menu/gi);
     window.innerWidth = 300;
+    render(<Header />);
+    const menu = screen.getByTestId(/header__menu/gi);
     expect(menu).toBeTruthy();
   });
-//   test('menuIcon - not present in big screen', () => {
-//     const menu = screen.getByTestId(/header__menu/gi);
-//     expect(menu).toBeFalsey();
-//   })
+  test("menuIcon - not present in big screen", () => {
+    const menu = screen.queryByTestId(/header__menu/gi);
+    expect(menu).toBeFalsy();
+  });
 });
