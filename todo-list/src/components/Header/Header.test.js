@@ -42,4 +42,11 @@ describe("menu - mobile", () => {
     fireEvent.click(menu);
     expect(menu.className.includes("active")).toBe(true);
   });
+
+  test.skip("show nav", () => {
+    const menu = screen.getByTestId(/header__menu/gi);
+    fireEvent.click(menu);
+    const nav = screen.getByTestId(/nav/gi);
+    expect(nav.className.includes("active")).toBe(true);
+  });
 });
