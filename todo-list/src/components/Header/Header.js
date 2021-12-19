@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 import "./Header.css";
 
@@ -11,7 +11,6 @@ class Header extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.updateWindowSize);
-    // this.updateWindowSize();
   }
 
   componentWillUnmount() {
@@ -21,6 +20,8 @@ class Header extends React.Component {
     this.setState({ windowWidth: window.innerWidth });
   }
   showMenu({ currentTarget }) {
+    const nav = document.querySelector(".nav");
+    nav.classList.toggle("nav--active");
     currentTarget.classList.toggle("header__menu--active");
   }
 
@@ -39,7 +40,7 @@ class Header extends React.Component {
         {this.state.windowWidth <= 650 ? (
           <div
             className="header__menu"
-            onClick={this.showMenu}
+            onClick={this.showMenu.bind(this)}
             data-testid="header__menu"
           >
             <div className="header__menu--top">

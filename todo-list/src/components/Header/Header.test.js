@@ -36,17 +36,4 @@ describe("menu - mobile", () => {
     const menu = screen.getByTestId(/header__menu/gi);
     expect(menu).toBeTruthy();
   });
-
-  test("animate on click", () => {
-    const menu = screen.getByTestId(/header__menu/gi);
-    fireEvent.click(menu);
-    expect(menu.className.includes("active")).toBe(true);
-  });
-
-  test.skip("show nav", () => {
-    const menu = screen.getByTestId(/header__menu/gi);
-    fireEvent.click(menu);
-    const nav = screen.getByTestId(/nav/gi);
-    expect(nav.className.includes("active")).toBe(true);
-  });
 });

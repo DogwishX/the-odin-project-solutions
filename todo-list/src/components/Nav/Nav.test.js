@@ -12,8 +12,13 @@ describe("Render", () => {
     expect([inbox, today, week].every((item) => item)).toBe(true);
   });
   test("Projects", () => {
-    const projects = screen.getByText('Projects');
+    const projects = screen.getByText("Projects");
     expect(projects).toBeTruthy();
   });
-  test("Add button", () => {});
+  test("Add button", () => {
+    const addBtn = screen.getByTestId(/projects__add/i);
+    expect(addBtn).toBeTruthy();
+  });
 });
+
+
