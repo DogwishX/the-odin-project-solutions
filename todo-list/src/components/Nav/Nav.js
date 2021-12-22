@@ -42,7 +42,7 @@ class Projects extends Nav {
             Add Project
           </li>}
           {this.props.projects && this.props.projects.map((project, index) =>
-            <div key={index} className='project__project'>{project.name}</div>)}
+            <li key={index} className='project__project'>{project.name}</li>)}
         </ul>
       </div>
     );
