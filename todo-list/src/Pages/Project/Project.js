@@ -24,6 +24,12 @@ class Todo extends Project {
         super();
         this.state = { displayNameInput: false, displayDateInput: false }
         this.displayInput = this.displayInput.bind(this);
+        this.handleInputLoad = this.handleInputLoad.bind(this);
+        this.nameField = this.nameField.bind(this);
+    }
+
+    componentDidUpdate() {
+        this.handleInputLoad();
     }
 
     displayInput({ currentTarget }) {
@@ -36,15 +42,29 @@ class Todo extends Project {
             this.setState(tempState);
         }
     }
+    nameField() {
+        return this.state.displayNameInput ?
+            <input type='text'
+                data-value={this.props.todoInfo.todoName}
+                className='todo__input'
+                data-testid='todo__input'
+            /> :
+
+            <p className='todo__name'
+                data-testid='todo__name'
+                onClick={this.displayInput}>
+                {this.props.todoInfo.todoName}
+            </p>
+    }
+    handleInputLoad() {
+        const input = document.querySelector('.todo__input');
+        if (input) input.value = this.props.todoInfo.todoName;
+    }
+
 
     render() {
         return <div className='todo' data-testid='todo'>
-            {this.state.displayNameInput ?
-                <input type='text' className='todo__input' data-testid='todo__input' /> :
-                <p className='todo__name' data-testid='todo__name' onClick={this.displayInput}>
-                    {this.props.todoInfo.todoName}
-                </p>
-            }
+            {this.nameField()}
 
             {this.state.displayDateInput ? <input type='date'>{this.props.todoInfo.due}</input> : <p className='todo__date'>{this.props.todoInfo.due}</p>}
         </div>
