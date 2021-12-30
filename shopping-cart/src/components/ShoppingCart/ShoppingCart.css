@@ -1,0 +1,25 @@
+.cart {
+  position: absolute;
+  top: 5.1rem;
+  right: 0;
+  height: 100vh;
+  width: auto;
+  background-color: white;
+  color: black;
+}
+
+.cart__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__item * {
+  margin-right: 4rem;
+}
+
+.cart__item-qty {
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+}
