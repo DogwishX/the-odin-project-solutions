@@ -1,0 +1,8 @@
+@font-face {
+  font-family: spotify-circular;
+  src: url("../public/fonts/Circular/CircularStd-Black.otf") format("opentype");
+}
+
+.App * {
+  font-family: spotify-circular;
+}

@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__image {
+  max-height: 30px;
+  width: auto;
+}
+
+.logo__text {
+  margin-left: 0.3rem;
+  font-weight: 600;
+  user-select: none;
+}

@@ -1,0 +1,41 @@
+.button {
+  border: none;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  font-size: 0.8rem;
+  background-color: rgba(32, 47, 114, 0.95);
+  color: white;
+  position: relative;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  background-color: rgba(32, 47, 114, 1);
+}
+
+.button:active {
+  transform: scale(1);
+}
+
+.button:focus::after {
+  content: "";
+  animation: button-focus-border 1s alternate;
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 4rem;
+  border: rgba(32, 47, 114, 1) 3px solid;
+}
+
+@keyframes button-focus-border {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
