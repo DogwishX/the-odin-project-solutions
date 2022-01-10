@@ -5,7 +5,7 @@ import Nav from "./Components/Nav";
 function App() {
   return (
     <div className="home">
-      <Nav />
+      <Nav items={["Freemium", "Support", "Download"]} />
       <Outlet />
     </div>
   );

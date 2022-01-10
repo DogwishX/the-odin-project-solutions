@@ -9,7 +9,7 @@ function useWidthQuery() {
   function checkDeviceWidth() {
     return window.innerWidth <= 768
       ? "mobile"
-      : window.innerWidth <= 1024
+      : window.innerWidth <= 1000
       ? "tablet"
       : "desktop";
   }

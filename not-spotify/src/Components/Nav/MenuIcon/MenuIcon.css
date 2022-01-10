@@ -1,5 +1,7 @@
 .nav__menu-icon {
+  position: relative;
   margin: 1rem;
+  z-index: 2;
 }
 
 .nav__menu-icon:hover {
@@ -16,6 +18,7 @@
   transition: all 0.2s ease-in-out;
   transform-origin: 100% 50%;
   border-radius: 1px;
+  z-index: 2 !important;
 }
 
 .nav__menu-icon--active .nav__menu-icon--top {

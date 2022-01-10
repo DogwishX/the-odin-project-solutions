@@ -1,0 +1,90 @@
+.nav__items {
+  box-sizing: border-box;
+  position: absolute;
+  list-style: none;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  min-width: 235px;
+  max-width: 450px;
+  background-color: black;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  animation: slide-in 0.2s forwards;
+}
+
+.nav__items--hide {
+  animation: slide-out 0.1s forwards;
+}
+
+.nav__item:nth-child(1) {
+  margin-top: 1.8rem;
+}
+
+.nav__item {
+  font-size: 1.8rem;
+  width: 50%;
+  opacity: 0;
+  animation: slide-in 0.3s forwards;
+  padding: 0.6rem 0;
+}
+
+.nav__item:hover,
+.nav__profile .nav__item:hover {
+  cursor: pointer;
+  color: #1ed760;
+}
+
+.nav__divisor {
+  opacity: 1;
+  width: 1.25rem;
+  height: 2px;
+  position: absolute;
+  background-color: white;
+  margin-top: 1.85rem;
+  left: 2.6rem;
+}
+
+.nav__profile {
+  margin-top: 4rem;
+}
+
+.nav__profile .nav__item {
+  color: #b6b7b8;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.nav__item-logo {
+  position: absolute;
+  bottom: 1rem;
+  transform: translateX(50%);
+  opacity: 0;
+  animation: logo-slide-in 0.3s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  to {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+}
+
+@keyframes logo-slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
