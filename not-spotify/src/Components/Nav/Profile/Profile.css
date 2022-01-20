@@ -1,0 +1,19 @@
+.profile {
+  position: relative;
+}
+
+.profile__icon {
+  height: 16px;
+  width: 16px;
+  border: 2px solid #ffffff;
+  padding: 0.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile__dropdown {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -4rem;
+  background-color: #ffffff;
+}
