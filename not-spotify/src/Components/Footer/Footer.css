@@ -1,0 +1,9 @@
+.footer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer__logo {
+  color: white;
+}
