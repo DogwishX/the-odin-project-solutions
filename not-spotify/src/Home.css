@@ -1,7 +1,8 @@
 @font-face {
-  font-family: spotify-circular;
+  font-family: spotify-circular-normal;
   src: url("../public/fonts/Circular/CircularStd-Black.otf") format("opentype");
 }
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -9,5 +10,5 @@ body {
 }
 
 .home * {
-  font-family: spotify-circular;
+  font-family: spotify-circular-normal;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../Core/Logo";
+import { Link } from "react-router-dom";
 
 import "./Footer.css";
 
@@ -8,6 +9,7 @@ function Footer() {
     <div className="footer">
       <Logo text="Spotify" id="footer__logo" />
       <LinkSection />
+      <Socials />
     </div>
   );
 }
@@ -15,40 +17,58 @@ function Footer() {
 function LinkSection() {
   const COMPANY = {
     sectionName: "Company",
-    About: "#",
-    Jobs: "#",
-    "For the Record": "#",
+    links: [
+      { name: "About", href: "#" },
+      { name: "Jobs", href: "#" },
+      { name: "For the Record", href: "#" },
+    ],
   };
   const COMMUNITIES = {
     sectionName: "Communities",
-    "For Artists": "#",
-    Developers: "#",
-    Ardvertising: "#",
-    Investors: "#",
-    Vendors: "#",
+    links: [
+      { name: "For Artists", href: "#" },
+      { name: "Developers", href: "#" },
+      { name: "Advertising", href: "#" },
+      { name: "Investors", href: "#" },
+      { name: "Vendors", href: "#" },
+    ],
   };
   const USEFULLINKS = {
     sectionName: "Useful Links",
-    Support: "#",
-    "Web Player": "#",
-    "Free Mobile App": "#",
+    links: [
+      { name: "Support", href: "#" },
+      { name: "Web Player", href: "#" },
+      { name: "Free Mobile App", href: "#" },
+    ],
   };
 
   const sectionArr = [COMPANY, COMMUNITIES, USEFULLINKS];
 
   return (
-    <div className="footer__links-section">
-      {sectionArr.map((section) => {
-        <ul>
-          {Object.keys(section).map((item) => (
-            <li>
-              <Link>{console.log(item)}</Link>
-            </li>
-          ))}
-        </ul>;
-      })}
+    <div className="links">
+      {sectionArr.map((section, index) => (
+        <div className="links__section" key={index}>
+          <h1 className="links__title">{section.sectionName}</h1>
+          <ul className="links__list">
+            {section.links.map(({ name, href }, index) => (
+              <li className="links__item" key={index}>
+                <Link to={href}>{name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
+}
+
+function Socials() {
+  const socialsObj = [
+    { name: "instagram", href: "#", icon: "" },
+    { name: "twitter", href: "#", icon: "" },
+    { name: "facebook", href: "#", icon: "" },
+  ];
+  return <div className="socials"></div>;
 }
 
 export default Footer;

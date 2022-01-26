@@ -1,9 +1,46 @@
+@font-face {
+  font-family: spotify-circular-light;
+  src: url("/public/fonts/Circular/CircularStd-Medium.otf") format("opentype");
+}
+
 .footer {
-  background-color: black;
+  background-color: #000;
   display: flex;
   flex-direction: column;
 }
 
 #footer__logo {
-  color: white;
+  margin: 1.2rem 0 0 1rem;
+  color: #ffffff;
+}
+
+.links * {
+  font-family: spotify-circular-light;
+}
+
+.links__section {
+  margin: 3.8rem 1rem;
+}
+
+.links__title {
+  text-transform: uppercase;
+  color: #8e9193;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+.links__list {
+  list-style: none;
+  padding: 0;
+}
+
+.links__item {
+  margin: 1.5rem 0;
+}
+
+.links__item > * {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
 }
