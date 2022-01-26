@@ -13,6 +13,7 @@
   overflow-y: hidden;
   overflow-x: scroll;
   animation: slide-in 0.2s forwards;
+  z-index: 1;
 }
 
 .nav__items--hide {

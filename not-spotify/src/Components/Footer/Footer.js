@@ -1,7 +1,12 @@
 import React from "react";
 import Logo from "../Core/Logo";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faInstagram,
+  faFacebookF,
+} from "@fortawesome/free-brands-svg-icons";
 import "./Footer.css";
 
 function Footer() {
@@ -63,12 +68,20 @@ function LinkSection() {
 }
 
 function Socials() {
-  const socialsObj = [
-    { name: "instagram", href: "#", icon: "" },
-    { name: "twitter", href: "#", icon: "" },
-    { name: "facebook", href: "#", icon: "" },
-  ];
-  return <div className="socials"></div>;
+  return (
+    <div className="socials">
+      <a href="https://www.instagram.com" target="_blank">
+        <FontAwesomeIcon className="socials__icon" icon={faInstagram} />
+      </a>
+
+      <a href="https://www.twitter.com" target="_blank">
+        <FontAwesomeIcon className="socials__icon" icon={faTwitter} />
+      </a>
+      <a href="https://www.facebook.com" target="_blank">
+        <FontAwesomeIcon className="socials__icon" icon={faFacebookF} />
+      </a>
+    </div>
+  );
 }
 
 export default Footer;
